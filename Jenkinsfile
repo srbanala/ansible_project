@@ -6,7 +6,7 @@ pipeline {
     stages {
        stage(' build') {
           steps {
-             sh 'ansible-playbook site.yml --private-key /tmp/mykp.pem --limit dbservers --become  '
+             sh '/home/ec2-user/.local/bin/ansible-playbook site.yml --private-key /tmp/mykp.pem --limit dbservers --become  '
              }
        }
       }
