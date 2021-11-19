@@ -1,0 +1,23 @@
+---
+# file: roles/common/tasks/main.yml
+
+- name: Be sure ntp is installed
+  yum:
+   name: ntp
+   state: present
+  tags: ntp
+
+#- name: Be sure ntp is configured
+ # template:
+  #  src: ntp.conf.j2
+   # dest: /etc/ntp.conf
+  #notify:
+   # - restart ntpd
+  #tags: ntp
+
+- name: be sure ntp running and enabled
+  service:
+    name: ntpd
+    state: started
+    enabled: yes
+  tags: ntp

@@ -1,0 +1,83 @@
+---
+- name: My task
+  hosts: all
+  tasks:
+    - name: Leaving a mark
+      command: "touch /tmp/ansible_Was_here"
+
+    - name: Touch files with an optional mode
+      ansible.builtin.file:
+        dest: "{{ item.path }}"
+        state: touch
+        mode: "{{ item.mode|default(omit) }}"
+      loop:
+        - path: /tmp/foo
+        - path: /tmp/bar
+        - path : /tmp/baz
+          mode: "0444"
+
+    - name: Add users several users
+      ansible.builtin.user:
+        name: "{{ item }}"
+        state: present
+        groups: "wheel"
+      loop:
+        - testuser1
+        - testuser2
+        - testuser3
+
+    - name: Installing some packages
+      ansible.builtin.yum:
+        name: "{{ item }}"
+        state: present
+      loop:
+        - docker
+        - git
+        - pip
+
+    - name: Register a file content as variahle
+      ansible.builtin.shell: cat /tmp/mytask.yml
+      register: result
+
+    - name: Print transformed variable
+      ansible.builtin.debug:
+        msg: '{{ item }}'
+      loop: '{{ result.stdout | from_yaml_all | list }}'
+
+    - name: Give list combo of two lists
+      ansible.builtin.debug:
+        msg: "{{ [1,2,3,4,5,6] | zip (['a','b','c','d','e','f']) | list }}"
+
+    - name: Give me longest combo of three lists,fill with x
+      ansible.builtin.debug:
+        msg: "{{[1,2,3] | zip_longest(['a','b','c','d','e','f'],[21,22,23],fillvalue='X') | list }}"
+
+
+---
+- name: Update webservers
+  hosts: webservers
+  tasks:
+    - name: Installing Apache
+      ansible.builtin.yum:
+        name: httpd
+        state: latest
+      become: yes
+    - name: Start Apache service
+      ansible.builtin.service:
+        name: httpd
+        state: started
+      become: yes
+
+- name: Update db servers
+  hosts: database
+  tasks:
+    - name: Install postgresql
+      ansible.builtin.yum:
+        name: postgresql
+        state: latest
+    - name: Start postgresql service
+      ansible.builtin.service:
+        name: postgresql
+        state: started
+
+

@@ -1,0 +1,12 @@
+---
+# file: roles/dbtier/tasks/amin.yml
+
+- name: Install postgresql
+  yum:
+   name: postgresql
+   state: latest
+
+- name: Debuggin something
+  debug:
+    msg: "motd value is {{ motd_value }}"
+

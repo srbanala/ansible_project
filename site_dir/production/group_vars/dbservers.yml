@@ -1,0 +1,9 @@
+---
+
+# file: production/group_vars/dbservers.yml
+
+item: postgresql
+
+motd_value: "{{ lookup('file','/etc/motd') }}"
+
+
