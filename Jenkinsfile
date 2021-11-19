@@ -7,7 +7,7 @@ pipeline {
        stage(' build') {
           steps {
              sh 'chmod -R 777 * '
-             sh ' ansible-playbook site.yml   -u ec2-user --private-key /tmp/mykp.pem --become '
+             sh ' ansible-playbook site.yml -i hosts  -u ec2-user --private-key /tmp/mykp.pem --become '
               }
       }
     }
