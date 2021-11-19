@@ -35,7 +35,8 @@
 
   roles:
   - base-apache
-  #- nagios
+  - nagios
+  ignore_errors: true
 
 
 - name: Show all hosts in inventory
