@@ -39,8 +39,8 @@
   ignore_errors: true
 
 
-- name: Show all hosts in inventory
-  tasks:
-          ansible.builtin.debug:
-                  msg: "{{ item }}"
-          loop: "{{ groups['all'] }}"
+#- name: Show all hosts in inventory
+ # tasks:
+  ##               msg: "{{ item }}"
+ #         loop: "{{ groups['all'] }}"
+#
