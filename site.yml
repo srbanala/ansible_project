@@ -35,7 +35,7 @@
 
   roles:
   - base-apache
-  - nagios
+  #- nagios
 
 
 - name: Show all hosts in inventory

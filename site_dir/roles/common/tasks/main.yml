@@ -8,7 +8,7 @@
   tags: ntp
 
 #- name: Be sure ntp is configured
- # template:
+ # templates:
   #  src: ntp.conf.j2
    # dest: /etc/ntp.conf
   #notify:
