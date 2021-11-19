@@ -1,7 +1,7 @@
 10.0.101.208
 10.0.102.197
 10.0.2.225
-[webserver]
+[webservers]
 10.0.101.208
-[database]
+[dbservers]
 10.0.102.197
