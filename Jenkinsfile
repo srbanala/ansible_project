@@ -8,8 +8,7 @@ pipeline {
           steps {
              sh 'chmod -R 777 * '
              sh ' /home/ec2-user/.local/bin/ansible-playbook all -u ec2-user --private-key /tmp/mykp.pem --become '
-             sh '/home/ec2-user/.local/bin/ansible-playbook site.yml -u ec2-user  --private-key /tmp/mykp.pem  --become '
-             }
+             
        }
       }
     }
