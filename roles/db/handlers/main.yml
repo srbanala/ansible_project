@@ -3,5 +3,5 @@
   yum:
    - mysql-server
    - MYSQL-python
-  when: result is failed
+  
 
