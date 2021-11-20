@@ -23,12 +23,14 @@
   roles:
     - base-apache
     - web
+  ignore_errors: yes
 
 # configure and deploy load balancers
 - hosts: lbservers
 
   roles:
     - haproxy
+  ignore_errors
 
 # Configure and deploy the Nagios monitoring node(s).
 - hosts: monitoring
