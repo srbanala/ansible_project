@@ -2,12 +2,12 @@
 - name: Handle A error
   block:
     - name : Create Application Database
-       mysql_db:
+      mysql_db:
        name: "{{dbname}}"
        state: present
 
     - name: Create Application DB User
-        mysql_user:
+      mysql_user:
         name: "{{dbsuer}}"
         password: "{{upassword}}"
         privs: "*.*:ALL"
@@ -17,4 +17,4 @@
     - name: print when errors
       ansible.builtin.debug:
         msg: "I caught an error,Can do stuff here to fix it"
-        
+
