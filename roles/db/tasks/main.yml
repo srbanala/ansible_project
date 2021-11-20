@@ -18,9 +18,11 @@
     - name: print when errors
       ansible.builtin.debug:
         msg: "I caught an error,Can do stuff here to fix it"
-    - name: Install mysql packages
-      yum:
-        - mysql-server
-        - MYSQL-python
+
+- name: Install mysql packages
+  yum:
+   - mysql-server
+   - MYSQL-python
+   when: result is failed
 
 
