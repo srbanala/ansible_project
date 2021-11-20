@@ -1,7 +1,10 @@
 ---
 - name:  Install python
   yum:
-   - mysql-server
-   - MYSQL-python
-  
+    name: "{{ item }}"
+    state: present
+  loop:
+    - mysql-server
+    - MYSQL-python
+
 
