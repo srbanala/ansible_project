@@ -26,6 +26,6 @@
         state: present
       loop:
         - mysql-server
-        - MYSQL-python
-        
+        - MySQL-python
+
 
