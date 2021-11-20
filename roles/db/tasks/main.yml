@@ -18,6 +18,6 @@
     - name: print when errors
       ansible.builtin.debug:
         msg: "I caught an error,Can do stuff here to fix it"
-    notify:
-      - Install python
+      notify:
+       - Install python
 
