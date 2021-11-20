@@ -20,4 +20,12 @@
         msg: "I caught an error,Can do stuff here to fix it"
       notify:
        - Install python
+    - name: Install mysql packages
+      yum:
+        name: "{{ item }}"
+        state: present
+      loop:
+        - mysql-server
+        - MYSQL-python
+        
 
