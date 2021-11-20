@@ -30,7 +30,7 @@
 
   roles:
     - haproxy
-  ignore_errors
+  ignore_errors: yes
 
 # Configure and deploy the Nagios monitoring node(s).
 - hosts: monitoring
