@@ -1,6 +1,4 @@
 ---
-      - Install-python
-
 - name:  Install-python
   yum:
    - mysql-server
