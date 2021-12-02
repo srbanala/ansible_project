@@ -4,14 +4,11 @@
 
 # Apply common configuration to all hosts
 - hosts: all
-
-
   roles:
     - common
 
 # configure and deploy database servers
 - hosts: dbservers
-
   roles:
     - db
   ignore_errors: yes
@@ -20,7 +17,6 @@
 # which includes our example web application.
 
 - hosts: webservers
-
   roles:
     - base-apache
     - web
@@ -28,14 +24,12 @@
 
 # configure and deploy load balancers
 - hosts: lbservers
-
   roles:
     - haproxy
   ignore_errors: yes
 
 # Configure and deploy the Nagios monitoring node(s).
 - hosts: monitoring
-
   roles:
   - base-apache
   - nagios
