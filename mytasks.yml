@@ -80,4 +80,28 @@
         name: postgresql
         state: started
 
+    - name: Show facts available on system
+      ansible.builtin.debug:
+        var: ansible_facts
+
+    - name: Get details of redhat
+      ansible.builtin.command: echo hello-world
+      when: ansible_facts['os_family']=='RedHat'
+
+    - name: Create directory
+      ansible.builtin.file:
+        name: /tmp/foo
+        state: directory
+        mode: 0755
+      when: ansible_facts['os_family']=='RedHat'
+
+    - name: List contents of a directory
+      ansible.builtin.command: ls home
+      register: contents
+
+    - name: Check contents for emptiness
+      ansible.builtin.debug:
+        msg: " Directory is empty"
+      when: contents.stdout==""
+
 
